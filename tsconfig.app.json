@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "types": [
+      "@types/node",
+      "vite/client"
+    ],
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "skipLibCheck": true,
+    "composite": true,
+    "declaration": true,
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "#/*": [
+        "./types/*"
+      ]
+    },
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": false,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": false,
+    "jsx": "preserve",
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "types/auto-imports.d.ts",
+    "types/components.d.ts",
+    "src/ocean-directives/clickoutside.js",
+    "src/utils/dom-utils.js"
+  ]
+}

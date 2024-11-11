@@ -1,0 +1,58 @@
+#oceanApp {
+  height: 100%;
+  overflow: visible;
+  overflow-x: hidden;
+  // margin: 0 auto;
+  // padding: 2rem;
+  // text-align: center;
+}
+
+body ::-webkit-scrollbar-track-piece {
+  background-color: #fff;
+  -webkit-border-radius: 0;
+}
+
+body ::-webkit-scrollbar {
+  width: 4px;
+}
+
+body ::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  -webkit-border-radius: 4px;
+  height: 50px;
+}
+
+body ::-webkit-scrollbar-thumb:hover {
+  background-color: #ccc;
+  -webkit-border-radius: 4px;
+  height: 50px;
+}
+
+@media screen and (max-width: 1360px) {
+  #main-container {
+    padding: 15px 40px;
+  }
+}
+
+@media screen and (max-width: 1360px) {
+  .main-container-chat {
+    padding: 15px 20px !important;
+  }
+}
+
+#header:after,
+#main:after,
+.card-list ul:after,
+.chat-info:after,
+.chat-list li:after,
+.clearfix:after,
+.detail-top:after,
+.history-company:after,
+.sec-content:after,
+.top-inner:after {
+  clear: both;
+  content: "";
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+}
