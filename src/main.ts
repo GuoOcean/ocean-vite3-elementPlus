@@ -1,4 +1,12 @@
 /*
+ * @Author: guohaiyang 1517366319@qq.com
+ * @Date: 2024-11-11 14:23:31
+ * @LastEditors: guohaiyang 1517366319@qq.com
+ * @LastEditTime: 2024-11-11 21:28:31
+ * @FilePath: /ocean-vite3-elementPlus/src/main.ts
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
+/*
  *                        _oo0oo_
  *                       o8888888o
  *                       88" . "88
@@ -31,6 +39,7 @@ import { setupStore } from "@/store";
 import { setupRouter } from "@/router"; // 引入router
 import { setupDirectives } from "@/ocean-directives";
 import "overlayscrollbars/overlayscrollbars.css";
+import "element-plus/dist/index.css"; // 引入element-plus样式
 
 // 控制主题模式是否跟随系统
 // 不需要可注释

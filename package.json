@@ -20,6 +20,8 @@
     "@vueuse/integrations": "^11.2.0",
     "axios": "^1.7.7",
     "crypto-js": "^4.2.0",
+    "dayjs": "^1.11.13",
+    "element-plus": "^2.8.7",
     "lodash-es": "^4.17.21",
     "mitt": "^3.0.1",
     "nprogress": "^0.2.0",
