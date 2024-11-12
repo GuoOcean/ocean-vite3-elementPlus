@@ -1,0 +1,199 @@
+/* transition fade-slide */
+// 从左到右动画
+.fadeRight-leave-active,
+.fadeRight-enter-active {
+    transition: all 0.3s;
+}
+
+.fadeRight-enter-from {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.fadeRight-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+// 淡入淡出动画
+.fadeIn-enter-active,
+.fadeIn-leave-active {
+    transition: opacity 0.5s;
+}
+
+.fadeIn-enter-from,
+.fadeIn-leave-to {
+    opacity: 0;
+}
+
+
+/* 从下到上滑动的 CSS 动画 */
+.slideUp-enter-active,
+.slideUp-leave-active {
+    transition: all 0.5s;
+}
+
+.slideUp-enter-from,
+.slideUp-leave-to {
+    transform: translateY(100%);
+    /* 从底部开始 */
+    opacity: 0;
+    /* 可以添加透明度效果 */
+}
+
+.slideUp-enter-to,
+.slideUp-leave-from {
+    transform: translateY(0);
+    /* 滑动到顶部 */
+    opacity: 1;
+    /* 完全可见 */
+}
+
+/**
+ * zoom CSS 动画
+ */
+
+.zoom-enter-active,
+.zoom-leave-active {
+    transition: all 0.3s;
+}
+
+.zoom-enter-from,
+.zoom-leave-to {
+    opacity: 0;
+    transform: scale(0.7);
+    opacity: 0;
+}
+
+.zoom-enter-to,
+.zoom-leave-from {
+    transform: scale(1);
+    opacity: 1;
+}
+
+// 以上是使用的动画
+
+
+
+.zoom-in-top-enter-active,
+.zoom-in-top-leave-active {
+    transition: all 0.3s ease;
+}
+
+.zoom-in-top-enter-from,
+.zoom-in-top-leave-to {
+    transform-origin: top left;
+    opacity: 0;
+    transform: scaleY(0.5);
+}
+
+.zoom-in-top-enter-to,
+.zoom-in-top-leave-from {
+    transform-origin: top left;
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+
+
+.zoom-in-bottom-enter-active,
+.zoom-in-bottom-leave-active {
+    transition: all 0.3s ease;
+}
+
+.zoom-in-bottom-enter-from,
+.zoom-in-bottom-leave-to {
+    transform-origin: bottom left;
+    opacity: 0;
+    transform: scaleY(0.5);
+}
+
+.zoom-in-bottom-enter-to,
+.zoom-in-bottom-leave-from {
+    transform-origin: bottom left;
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+
+
+.slide-left-enter-active,
+.slide-left-leave-active {
+    transition: all 0.3s ease;
+}
+
+.slide-left-enter-from,
+.slide-left-leave-to {
+    transform-origin: top left;
+    opacity: 0;
+    transform: translateX(-80%);
+}
+
+.slide-left-enter-to,
+.slide-left-leave-from {
+    transform-origin: top left;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide-right-enter-active,
+.slide-right-leave-active {
+    transition: all 0.3s ease;
+}
+
+.slide-right-enter-from,
+.slide-right-leave-to {
+    transform-origin: top right;
+    opacity: 0;
+    transform: translateX(80%);
+}
+
+.slide-right-enter-to,
+.slide-right-leave-from {
+    transform-origin: top right;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+
+
+
+.slide-bottom-enter-active,
+.slide-bottom-leave-active {
+    transition: all 0.3s ease;
+}
+
+.slide-bottom-enter-from,
+.slide-bottom-leave-to {
+    transform-origin: bottom left;
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+.slide-bottom-enter-to,
+.slide-bottom-leave-from {
+    transform-origin: bottom left;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.slide-top-enter-active,
+.slide-top-leave-active {
+    transition: all 0.3s ease;
+}
+
+.slide-top-enter-from,
+.slide-top-leave-to {
+    transform-origin: top left;
+    opacity: 0;
+    transform: translateY(-100%);
+}
+
+.slide-top-enter-to,
+.slide-top-leave-from {
+    transform-origin: top left;
+    opacity: 1;
+    transform: translateY(0);
+}
