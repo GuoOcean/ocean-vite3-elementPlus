@@ -79,9 +79,9 @@
 </template>
 
 <script setup lang="ts">
-// import { useUserStore } from "@/store/modules/user";
+import { useUserStore } from "@/store/modules/user";
 import { useSettingsStore } from "@/store/modules/settings";
-// const userStore = useUserStore();
+const userStore = useUserStore();
 const settingsStore = useSettingsStore();
 const router = useRouter(); // 路由跳转
 const route = useRoute(); // 当前路由
@@ -121,19 +121,14 @@ const handleLogin = async () => {
   if (!username) return proxy?.$message("warning", "请输入用户名");
   if (!password) return proxy?.$message("warning", "请输入密码");
   loading.value = true;
-  // try {
-  //   const result = await userStore.login(loginForm.value);
-  //   if (result.code !== 200) {
-  //     proxy?.$message("error", result.msg);
-  //     loading.value = false;
-  //     return;
-  //   }
-  //   // proxy?.$message("success", "登录成功");
-  //   router.push({ path: redirect.value || "/" });
-  //   loading.value = false;
-  // } catch (error) {
-  //   loading.value = false;
-  // }
+  try {
+    await userStore.login(loginForm.value);
+    // proxy?.$message("success", "登录成功");
+    router.push({ path: redirect.value || "/" });
+    loading.value = false;
+  } catch (error) {
+    loading.value = false;
+  }
 };
 
 // 监听器
@@ -150,7 +145,7 @@ watch(
 .logo-page {
   height: 100%;
   background-color: rgba(99, 102, 241, 0.5);
-  // background-color: rgba(var(--ant-primary-color), 0.5);
+  // background-color: rgba(var(--el-color-primary), 0.5);
 
   .page-sign {
     min-height: 100%;
@@ -255,7 +250,7 @@ watch(
 
                   &:focus,
                   &:hover {
-                    box-shadow: 0 0 0 2px var(--ant-primary-color);
+                    box-shadow: 0 0 0 2px var(--el-color-primary);
                   }
                 }
 
@@ -388,14 +383,14 @@ watch(
           }
 
           .checked-wrapper:hover {
-            border-color: var(--ant-primary-color);
+            border-color: var(--el-color-primary);
           }
 
           .is-checked {
-            border-color: var(--ant-primary-color) !important;
+            border-color: var(--el-color-primary) !important;
 
             .checked-icon {
-              background: var(--ant-primary-color);
+              background: var(--el-color-primary);
               opacity: 1;
               transition: all 0.2s ease-in-out;
               transform: scale(1);
@@ -407,7 +402,7 @@ watch(
           }
 
           .protocol-link {
-            color: var(--ant-primary-color);
+            color: var(--el-color-primary);
             transition: all 0.2s linear;
             text-decoration: none;
           }
@@ -415,7 +410,7 @@ watch(
           .protocol-text {
             font-size: 14px;
             font-weight: 500;
-            color: var(--ant-primary-color);
+            color: var(--el-color-primary);
             cursor: pointer;
           }
         }

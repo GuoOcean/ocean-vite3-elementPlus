@@ -7,10 +7,27 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    ElBadge: typeof import('element-plus/es')['ElBadge']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
+    ElDialog: typeof import('element-plus/es')['ElDialog']
+    ElDropdown: typeof import('element-plus/es')['ElDropdown']
+    ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
+    ElDropdownMenu: typeof import('element-plus/es')['ElDropdownMenu']
     HelloWorld: typeof import('./../src/components/HelloWorld.vue')['default']
+    NavFullScreen: typeof import('./../src/layoutsComponents/OceanNav/nav-fullScreen.vue')['default']
+    NavOperation: typeof import('./../src/layoutsComponents/OceanNav/nav-operation.vue')['default']
+    NavSearch: typeof import('./../src/layoutsComponents/OceanNav/nav-search.vue')['default']
+    NavSystemNotification: typeof import('./../src/layoutsComponents/OceanNav/nav-systemNotification.vue')['default']
+    NavTheme: typeof import('./../src/layoutsComponents/OceanNav/nav-theme.vue')['default']
+    NavUserInfo: typeof import('./../src/layoutsComponents/OceanNav/nav-userInfo.vue')['default']
+    OceanAppMain: typeof import('./../src/layoutsComponents/OceanAppMain/index.vue')['default']
+    OceanNav: typeof import('./../src/layoutsComponents/OceanNav/index.vue')['default']
+    OceanSearch: typeof import('./../src/layoutsComponents/OceanSearch/index.vue')['default']
+    OceanSideBar: typeof import('./../src/layoutsComponents/OceanSideBar/index.vue')['default']
+    OceanTabs: typeof import('./../src/layoutsComponents/OceanTabs/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SvgIcon: typeof import('./../src/components/SvgIcon.vue')['default']
   }
 }
