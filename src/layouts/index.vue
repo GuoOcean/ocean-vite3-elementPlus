@@ -2,7 +2,7 @@
  * @Author: guohaiyang 1517366319@qq.com
  * @Date: 2024-11-11 21:45:40
  * @LastEditors: guohaiyang 1517366319@qq.com
- * @LastEditTime: 2024-11-13 23:21:39
+ * @LastEditTime: 2024-11-15 15:03:28
  * @FilePath: /ocean-vite3-elementPlus/src/layouts/index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -10,7 +10,8 @@
   <div class="ocean-admin-vite-ts-el-elementPlus-vue-wrapper">
     <!-- 动态加载布局 -->
     <component :is="'ocean-layout-' + layoutMode"></component>
-
+    <!-- 右边主题配置组件 -->
+    <setting-drawer />
     <!-- search -->
     <ocean-search />
   </div>

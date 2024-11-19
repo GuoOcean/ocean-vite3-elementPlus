@@ -4,3 +4,24 @@
 
 .el-popper__arrow {
 }
+
+.ocean-setting-drawer-select {
+  z-index: 4000 !important;
+  padding: 4px;
+  border: none !important;
+}
+
+.ocean-setting-drawer-select .el-select-dropdown__list {
+  padding: 0 !important;
+}
+
+.ocean-setting-drawer-select .el-select-dropdown__item {
+  display: flex;
+  padding: 5px 12px !important;
+  height: 32px !important;
+  align-items: center;
+}
+
+.ocean-setting-drawer-select .el-popper__arrow {
+  // display: none !important;
+}

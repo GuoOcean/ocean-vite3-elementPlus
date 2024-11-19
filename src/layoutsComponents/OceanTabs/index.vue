@@ -71,7 +71,7 @@
 </template>
 
 <script setup lang="ts">
-import { useZIndex } from "@/hooks/useZIndex";
+// import { useZIndex } from "@/hooks/useZIndex";
 // 导入仓库
 import { useSettingsStore } from "@/store/modules/settings";
 import { useTabsStore } from "@/store/modules/tabs";
