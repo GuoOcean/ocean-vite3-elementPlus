@@ -40,7 +40,8 @@ const VITE_APP_TITLE = import.meta.env.VITE_APP_TITLE;
   padding: 0 8px;
 }
 h1 {
-  color: var(--ant-primary-color);
+  // color: var(--ant-primary-color);
+  color: var(--el-color-primary);
   margin-bottom: 0;
   margin-left: 10px;
   animation: pro-layout-title-hide 0.3s;

@@ -26,25 +26,32 @@
     :class="oceanMenuLeftClass"
     v-if="settingsStore.isColumnMenu"
   >
-    <!-- <div
+    <div
       class="ocean-menu-content-wrapper"
       :style="{
         transform: `translateX(${routerStore.partialRoutes.length == 0 ? '0' : '100%'})`,
       }"
+      style="padding: 0 4px; box-sizing: border-box"
     >
-      <a-menu
-        v-model:selectedKeys="selectedKeys"
-        mode="inline"
-        :theme="settingsStore.themeMode as any"
+      <el-menu
+        :default-active="selectedKeys"
+        :theme="settingsStore.themeMode"
         style="width: 100%; background-color: transparent"
+        class="ocean-menu-vertical"
+        router
       >
-        <a-menu-item :key="item.path" v-for="item in routerStore.partialRoutes">
+        <el-menu-item
+          :key="item.path"
+          :index="item.path"
+          class="ocean-menu-item"
+          v-for="item in routerStore.partialRoutes"
+        >
           <router-link :to="item.path">
             <span>{{ item.meta?.title }}</span>
           </router-link>
-        </a-menu-item>
-      </a-menu>
-    </div> -->
+        </el-menu-item>
+      </el-menu>
+    </div>
   </div>
 </template>
 
@@ -65,7 +72,7 @@ const keepAliveNameList = ref();
 const keepAliveMaxNum = ref(20);
 const isLarge = ref(false);
 const isLargeColumn = ref(false);
-const selectedKeys = ref<string[]>([]);
+const selectedKeys = ref<string>("");
 const containerClass = computed(() => ({
   "ocean-container-large": isLarge.value && !settingsStore.isColumnMenu,
   "ocean-container-large-column":
@@ -145,11 +152,10 @@ watch(
   () => route,
   (newVal) => {
     if (newVal.path) {
-      // selectedKeys.value = [newVal.path];
       if (newVal.meta?.activeMenu) {
-        selectedKeys.value = [newVal.meta?.activeMenu as string];
+        selectedKeys.value = newVal.meta?.activeMenu as string;
       } else {
-        selectedKeys.value = [newVal.path];
+        selectedKeys.value = newVal.path;
       }
     }
   },

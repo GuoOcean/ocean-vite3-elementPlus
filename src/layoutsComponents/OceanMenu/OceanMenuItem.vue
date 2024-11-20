@@ -13,7 +13,6 @@
         :key="onlyOneChild.path"
         :index="onlyOneChild.path"
         class="ocean-menu-item"
-        :route="onlyOneChild.path"
         :class="{ isActive1: route.path.match(onlyOneChild.path) }"
       >
         <svg-icon icon="UserOutlined" class="router-icon"></svg-icon>

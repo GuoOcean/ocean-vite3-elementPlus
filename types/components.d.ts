@@ -30,6 +30,7 @@ declare module 'vue' {
     NavTheme: typeof import('./../src/layoutsComponents/OceanNav/nav-theme.vue')['default']
     NavUserInfo: typeof import('./../src/layoutsComponents/OceanNav/nav-userInfo.vue')['default']
     OceanAppMain: typeof import('./../src/layoutsComponents/OceanAppMain/index.vue')['default']
+    OceanColumnBar: typeof import('./../src/layoutsComponents/OceanColumnBar/index.vue')['default']
     OceanLogo: typeof import('./../src/layoutsComponents/OceanLogo/index.vue')['default']
     OceanMenu: typeof import('./../src/layoutsComponents/OceanMenu/index.vue')['default']
     OceanMenuColumnItem: typeof import('./../src/layoutsComponents/OceanMenu/OceanMenuColumnItem.vue')['default']

@@ -14,7 +14,7 @@ const arrRoutes = (allRoutes: any[]) => {
 export const useRouterStore = defineStore("router", () => {
   const routes = ref<any[]>([]); // 所有路由
   const partialRoutes = ref<any[]>([]); // 部分路由
-  const parentRoute = ref<string[]>([]); // 父级路由
+  const parentRoute = ref<string>(""); // 父级路由
   const childrenRoute = ref<string[]>([]); // 子路由
   // 处理路由信息，并动态添加路由
   // 如不需要可将 arrRoutes 注释并将router/index.ts中的routes全部路由合并即可
@@ -120,13 +120,13 @@ export const useRouterStore = defineStore("router", () => {
       }
       // 这里就是父节点下多个字节点，这时父节点的高亮就是自己本身
       if (parentChain[0].children.length > 1) {
-        parentRoute.value = [parentChain[0].path];
+        parentRoute.value = parentChain[0].path;
       } else if (parentChain[0].children.length == 1) {
-        parentRoute.value = [flattenedRoutes[0].path];
+        parentRoute.value = flattenedRoutes[0].path;
       }
       return parentChain[0];
     } else {
-      parentRoute.value = [];
+      parentRoute.value = "";
       return null;
     }
   };
