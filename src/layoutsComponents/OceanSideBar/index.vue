@@ -2,7 +2,7 @@
  * @Author: guohaiyang 1517366319@qq.com
  * @Date: 2024-11-13 23:28:37
  * @LastEditors: guohaiyang 1517366319@qq.com
- * @LastEditTime: 2024-11-15 15:01:16
+ * @LastEditTime: 2024-11-20 15:55:31
  * @FilePath: /ocean-vite3-elementPlus/src/layoutsComponents/OceanSideBar/index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -19,9 +19,14 @@
         :class="{
           'ocean-mix-menu': settingsStore.isMixingMenu,
         }"
-        style="flex: 1; overflow: hidden auto"
+        style="
+          flex: 1;
+          overflow: hidden auto;
+          padding: 0 4px;
+          box-sizing: border-box;
+        "
       >
-        <!-- <ocean-menu /> -->
+        <ocean-menu />
       </div>
     </div>
   </div>

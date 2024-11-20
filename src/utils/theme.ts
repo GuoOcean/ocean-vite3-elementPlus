@@ -13,6 +13,16 @@ export function handleThemeStyle(theme: string | null) {
       `${getDarkColor(theme, i / 10)}`
     );
   }
+  // document.documentElement.style.setProperty(
+  //   "--el-menu-base-level-padding",
+  //   "16px"
+  // );
+  // document.documentElement.style.setProperty("--el-menu-level-padding", "16px");
+  document.documentElement.style.setProperty("--el-menu-item-height", "40px");
+  document.documentElement.style.setProperty(
+    "--el-menu-sub-item-height",
+    "40px"
+  );
 }
 
 // hex颜色转rgb颜色

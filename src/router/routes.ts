@@ -2,7 +2,7 @@
  * @Author: guohaiyang 1517366319@qq.com
  * @Date: 2024-09-28 19:51:50
  * @LastEditors: guohaiyang 1517366319@qq.com
- * @LastEditTime: 2024-11-11 21:55:27
+ * @LastEditTime: 2024-11-19 17:22:40
  * @FilePath: /gc-carpool-admin/src/router/routes.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -45,7 +45,47 @@ export const staticRoutes = [
 /**
  * 动态路由 (需要权限)
  */
-export const asyncRoutes = [];
+export const asyncRoutes = [
+  {
+    path: "/list",
+    name: "list",
+    component: Layout,
+    redirect: "/list/table-list",
+    meta: {
+      title: "审核管理",
+      // icon: "HomeFilled",
+    },
+    children: [
+      {
+        path: "/list/table-list",
+        name: "table-list",
+        component: () => import("@/views/list/list1/index.vue"),
+        meta: {
+          title: "列表1",
+          icon: "home-2-line",
+        },
+      },
+      {
+        path: "/list/basic-list",
+        name: "basic-list",
+        component: () => import("@/views/list/list2/index.vue"),
+        meta: {
+          title: "列表2",
+          icon: "home-2-line",
+        },
+      },
+      {
+        path: "/list/card-list",
+        name: "card-list",
+        component: () => import("@/views/list/list3/index.vue"),
+        meta: {
+          title: "列表3",
+          icon: "home-2-line",
+        },
+      },
+    ],
+  },
+];
 
 /**
  * 任意路由 (404)
