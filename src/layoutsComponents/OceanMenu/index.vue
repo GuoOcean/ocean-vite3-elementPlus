@@ -2,7 +2,7 @@
  * @Author: guohaiyang 1517366319@qq.com
  * @Date: 2024-11-19 16:42:21
  * @LastEditors: guohaiyang 1517366319@qq.com
- * @LastEditTime: 2024-11-20 14:43:24
+ * @LastEditTime: 2024-11-20 17:20:41
  * @FilePath: /ocean-vite3-elementPlus/src/layoutsComponents/OceanMenu/index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -18,6 +18,7 @@
       mode="vertical"
       style="width: 100%; background-color: transparent"
       class="ocean-menu-vertical"
+      router
     >
       <OceanMenuItem
         v-for="(route, index) in routers"
@@ -30,14 +31,16 @@
   <template v-if="settingsStore.isHeadMenu">
     <el-menu
       :default-active="selectedKeys"
+      :collapse-transition="false"
       mode="horizontal"
-      :theme="settingsStore.themeMode as any"
       style="
         width: 100%;
         background-color: transparent;
         line-height: 48px;
         border: none;
       "
+      class="ocean-menu-horizontal"
+      router
     >
       <OceanMenuItem
         v-for="(route, index) in routers"

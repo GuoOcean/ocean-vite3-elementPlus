@@ -1,11 +1,3 @@
-/*
- * @Author: guohaiyang 1517366319@qq.com
- * @Date: 2024-11-11 15:01:38
- * @LastEditors: guohaiyang 1517366319@qq.com
- * @LastEditTime: 2024-11-13 23:26:25
- * @FilePath: /ocean-vite3-elementPlus/src/router/permissions.ts
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- */
 import pinia from "@/store";
 import type { Router } from "vue-router";
 // 使用nprogressvueuse集成方案
@@ -24,11 +16,12 @@ const whiteList = ["/login", "/404", "/403"];
 export function setupPermissions(router: Router) {
   router.beforeEach(async (to, from, next) => {
     const { routes, setRoutes } = useRouterStore();
-    const userStore = useUserStore(pinia);
-    const settingsStore = useSettingsStore(pinia);
+    const userStore = useUserStore();
+    const settingsStore = useSettingsStore();
     if (settingsStore.showProgressBar) {
       isLoading.value = true; // 开启加载动画
     }
+
     if (userStore.token) {
       if (to.path === "/login") {
         next({ path: "/", replace: true });
@@ -39,7 +32,7 @@ export function setupPermissions(router: Router) {
         const isUserAvatar = userStore.userInfo.avatar;
         if (isUserAvatar) {
           // 如果用户信息存在，则直接放行
-          // await setRoutes();
+          await setRoutes();
           next();
           setRouterHistory(to);
         } else {

@@ -1,11 +1,3 @@
-<!--
- * @Author: guohaiyang 1517366319@qq.com
- * @Date: 2024-11-13 23:28:37
- * @LastEditors: guohaiyang 1517366319@qq.com
- * @LastEditTime: 2024-11-20 15:55:31
- * @FilePath: /ocean-vite3-elementPlus/src/layoutsComponents/OceanSideBar/index.vue
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
--->
 <template>
   <div
     class="ocean-side-bar ocean-side-bar-wrapper"
@@ -39,7 +31,6 @@ const settingsStore = useSettingsStore();
 
 const { nextZIndex } = useZIndex();
 const zIndex = nextZIndex();
-// console.log(zIndex);
 </script>
 
 <style scoped lang="scss">
@@ -50,7 +41,8 @@ const zIndex = nextZIndex();
   max-width: $ocean-sidebar-width;
   left: 0;
   height: 100%;
-  top: 0;
+  // height: calc(100% - 2px);
+  top: 2px;
   box-shadow: 1px 0 5px rgba(0, 0, 0, 0.05);
   transition:
     background-color 0.3s,

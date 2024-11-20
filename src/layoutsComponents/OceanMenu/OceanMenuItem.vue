@@ -8,20 +8,19 @@
     >
       <!-- 方式二 -->
       <!-- :class="{ 'isActive1': route.path.match(onlyOneChild.path)}" -->
-      <router-link :to="onlyOneChild.path">
-        <el-menu-item
-          @click="handleLink"
-          :key="onlyOneChild.path"
-          :index="onlyOneChild.path"
-          class="ocean-menu-item"
-          :class="{ isActive1: route.path.match(onlyOneChild.path) }"
-        >
-          <svg-icon icon="UserOutlined" class="router-icon"></svg-icon>
-          <template #title>
-            <span>{{ onlyOneChild.meta?.title }}</span>
-          </template>
-        </el-menu-item>
-      </router-link>
+      <el-menu-item
+        @click="handleLink"
+        :key="onlyOneChild.path"
+        :index="onlyOneChild.path"
+        class="ocean-menu-item"
+        :route="onlyOneChild.path"
+        :class="{ isActive1: route.path.match(onlyOneChild.path) }"
+      >
+        <svg-icon icon="UserOutlined" class="router-icon"></svg-icon>
+        <template #title>
+          <span>{{ onlyOneChild.meta?.title }}</span>
+        </template>
+      </el-menu-item>
     </template>
 
     <el-sub-menu
@@ -30,6 +29,7 @@
       v-else
       class="ocean-sub-menu"
       :class="{ isActive: route.path.match(item.path) }"
+      popper-class="ocean-sub-menu-popper"
     >
       <template v-if="item.meta.title" #title>
         <svg-icon icon="UserOutlined" class="router-icon"></svg-icon>

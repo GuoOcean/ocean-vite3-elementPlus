@@ -27,7 +27,7 @@
         style="flex: 1; height: 100%; min-width: 0"
         v-if="settingsStore.isHeadMenu"
       >
-        <!-- <ocean-menu /> -->
+        <ocean-menu />
       </div>
       <div class="header-userInfo">
         <navSearch />
