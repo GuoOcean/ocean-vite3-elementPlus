@@ -15,6 +15,27 @@
   align-items: center;
 }
 
+.ocean-nav-info-dropdown.el-dropdown__popper.el-popper {
+  border: none !important;
+  .el-dropdown-menu {
+    padding: 4px !important;
+    outline: none;
+    list-style-type: none;
+    box-shadow:
+      0 6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 3px 6px -4px rgba(0, 0, 0, 0.12),
+      0 9px 28px 8px rgba(0, 0, 0, 0.05);
+    .el-dropdown-menu__item {
+      border-radius: var(--el-border-radius-base);
+      color: rgba(0, 0, 0, 0.88);
+    }
+  }
+  .el-popper__arrow {
+    display: none !important;
+  }
+}
+
+// 以下为el-menu菜单自定义样式
 .ocean-menu-vertical.el-menu,
 .ocean-menu-column.el-menu {
   border: none !important;

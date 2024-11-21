@@ -26,7 +26,10 @@
           </div>
         </div>
       </div>
-      <el-dropdown @visible-change="handleOpenChange">
+      <el-dropdown
+        @visible-change="handleOpenChange"
+        popper-class="ocean-nav-info-dropdown"
+      >
         <div
           class="ocean-tabs-right ml-10"
           v-if="settingsStore.showEnableTabsQuick"
@@ -105,7 +108,9 @@ const tabsWrapClass = computed(() => ({
   "ocean-header-mixing": settingsStore.isMixingMenu,
   "ocean-header-retract":
     settingsStore.isCollapse &&
-    (settingsStore.isSideMenu || settingsStore.isMixingMenu),
+    (settingsStore.isSideMenu ||
+      settingsStore.isMixingMenu ||
+      settingsStore.isColumnMenu),
 }));
 
 // 点击的是那个

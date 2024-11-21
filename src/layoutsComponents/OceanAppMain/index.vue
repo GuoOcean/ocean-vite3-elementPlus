@@ -28,6 +28,7 @@
   >
     <div
       class="ocean-menu-content-wrapper"
+      :class="oceanMenuContentWrapperClass"
       :style="{
         transform: `translateX(${routerStore.partialRoutes.length == 0 ? '0' : '100%'})`,
       }"
@@ -83,13 +84,19 @@ const containerClass = computed(() => ({
 const appMainContainerClass = computed(() => ({
   "container-retract":
     settingsStore.isCollapse &&
-    (settingsStore.isSideMenu || settingsStore.isMixingMenu),
+    (settingsStore.isSideMenu ||
+      settingsStore.isMixingMenu ||
+      settingsStore.isColumnMenu),
   "container-side": settingsStore.isSideMenu || settingsStore.isMixingMenu,
   "container-head ": settingsStore.isHeadMenu,
   "container-column":
     settingsStore.isColumnMenu && routerStore.partialRoutes.length > 0,
   "container-column-noMenu":
     settingsStore.isColumnMenu && routerStore.partialRoutes.length <= 0,
+  "container-column-retract":
+    settingsStore.isColumnMenu &&
+    settingsStore.isCollapse &&
+    routerStore.partialRoutes.length > 0,
   "container-paddingTop48":
     settingsStore.fixedHeader && !settingsStore.showTabs,
   "container-paddingTop0": !settingsStore.fixedHeader,
@@ -102,6 +109,10 @@ const oceanMenuLeftClass = computed(() => ({
   "ocean-menu-left": !settingsStore.fixedHeader,
   "ocean-menu-left88": settingsStore.fixedHeader && settingsStore.showTabs,
   "ocean-menu-left48": settingsStore.fixedHeader && !settingsStore.showTabs,
+}));
+
+const oceanMenuContentWrapperClass = computed(() => ({
+  "ocean-menu-content-retract": settingsStore.isCollapse,
 }));
 
 const updateContainerSize = () => {
@@ -199,6 +210,11 @@ watch(
   padding-left: calc($ocean-columnbar-width * 1);
 }
 
+// 分栏布局使用 并且有子级菜单 收起模式使用
+#container.container-column-retract {
+  padding-left: calc($ocean-columnbar-width + $ocean-sidebar-retractWidth);
+}
+
 .container-paddingTop48 {
   padding-top: var(--ocean-header-height);
 }
@@ -283,6 +299,11 @@ watch(
   height: 100%;
   width: $ocean-columnbar-width;
   overflow: hidden auto;
+  transition: all 0.2s;
+}
+
+.ocean-menu-left .ocean-menu-content-wrapper.ocean-menu-content-retract {
+  left: calc(($ocean-columnbar-width - $ocean-sidebar-retractWidth) * -1);
 }
 
 .ocean-menu-left.ocean-menu-open {

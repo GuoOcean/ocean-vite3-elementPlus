@@ -57,7 +57,9 @@ const settingsStore = useSettingsStore();
 
 const oceanNavClass = computed(() => ({
   "ocean-fixed-nav": settingsStore.fixedHeader,
-  "ocean-header-retract": settingsStore.isCollapse && settingsStore.isSideMenu,
+  "ocean-header-retract":
+    settingsStore.isCollapse &&
+    (settingsStore.isSideMenu || settingsStore.isColumnMenu),
   "ocean-header-side": settingsStore.isSideMenu,
   "ocean-header-head": settingsStore.isHeadMenu,
   "ocean-header-column": settingsStore.isColumnMenu,
