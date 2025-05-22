@@ -7,6 +7,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Dialog: typeof import('./../src/components/dialog/Dialog.vue')['default']
     ElBadge: typeof import('element-plus/es')['ElBadge']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
@@ -40,10 +41,13 @@ declare module 'vue' {
     OceanNav: typeof import('./../src/layoutsComponents/OceanNav/index.vue')['default']
     OceanSearch: typeof import('./../src/layoutsComponents/OceanSearch/index.vue')['default']
     OceanSideBar: typeof import('./../src/layoutsComponents/OceanSideBar/index.vue')['default']
+    OceanTable: typeof import('./../src/components/ocean-table/index.vue')['default']
     OceanTabs: typeof import('./../src/layoutsComponents/OceanTabs/index.vue')['default']
+    Pagination: typeof import('./../src/components/pagination/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SettingDrawer: typeof import('./../src/layoutsComponents/SettingDrawer/index.vue')['default']
     SvgIcon: typeof import('./../src/components/SvgIcon.vue')['default']
+    TemplateWarp: typeof import('./../src/components/templateWarp/index.vue')['default']
   }
 }

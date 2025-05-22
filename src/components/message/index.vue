@@ -2,7 +2,7 @@
  * @Author: guohaiyang 1517366319@qq.com
  * @Date: 2024-11-22 17:14:34
  * @LastEditors: guohaiyang 1517366319@qq.com
- * @LastEditTime: 2024-11-22 17:48:22
+ * @LastEditTime: 2025-05-22 16:11:07
  * @FilePath: /ocean-vite3-elementPlus/src/components/message/index.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -143,7 +143,7 @@ const props = withDefaults(defineProps<Props>(), {
   duration: 3000,
   top: 8,
 });
-interface Message {
+export interface Message {
   content?: string; // 提示内容
   icon?: VNode; // 自定义图标
   duration?: number | null; // 自动关闭的延时时长，单位 ms；设置 null 时，不自动关闭
@@ -340,7 +340,7 @@ defineExpose({
   color: rgba(0, 0, 0, 0.88);
   line-height: 1.5714285714285714;
   position: fixed;
-  z-index: 999; // 突出显示该层级
+  z-index: 9999; // 突出显示该层级
   width: 100%;
   left: 0;
   right: 0;

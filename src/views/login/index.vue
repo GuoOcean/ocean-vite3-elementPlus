@@ -116,8 +116,7 @@ const updataModelValue = (e: Event, type: string) => {
 
 // 登录
 const handleLogin = async () => {
-  // console.log(proxy?.$modal.info, "1111");
-  proxy?.$message.info("This is an info modal");
+  // proxy?.$message.info("This is an info modal");
   // proxy?.$modal.info({
   //   title: "This is an info modal",
   //   content: "Some descriptions ...",
@@ -125,12 +124,10 @@ const handleLogin = async () => {
   //     console.log("Know Click");
   //   },
   // });
-  // proxy?.$message.show("登录成功");
-  // return;
   // 解构
   const { username, password } = loginForm.value;
-  if (!username) return proxy?.$message("warning", "请输入用户名");
-  if (!password) return proxy?.$message("warning", "请输入密码");
+  if (!username) return proxy?.$message.warning("请输入用户名");
+  if (!password) return proxy?.$message.warning("请输入密码");
   loading.value = true;
   try {
     await userStore.login(loginForm.value);
@@ -138,6 +135,7 @@ const handleLogin = async () => {
     router.push({ path: redirect.value || "/" });
     loading.value = false;
   } catch (error) {
+    proxy?.$message.warning("登录失败，请重试");
     loading.value = false;
   }
 };
