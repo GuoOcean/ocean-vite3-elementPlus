@@ -23,6 +23,8 @@ declare module 'vue' {
     ElTag: typeof import('element-plus/es')['ElTag']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     HelloWorld: typeof import('./../src/components/HelloWorld.vue')['default']
+    Message: typeof import('./../src/components/message/index.vue')['default']
+    Modal: typeof import('./../src/components/modal/index.vue')['default']
     NavFullScreen: typeof import('./../src/layoutsComponents/OceanNav/nav-fullScreen.vue')['default']
     NavOperation: typeof import('./../src/layoutsComponents/OceanNav/nav-operation.vue')['default']
     NavSearch: typeof import('./../src/layoutsComponents/OceanNav/nav-search.vue')['default']

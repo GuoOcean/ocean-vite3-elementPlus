@@ -94,7 +94,7 @@ const protocolChecked = ref<boolean>(false); // 协议勾选
 const loginForm = ref({
   // 表单数据
   username: "admin",
-  password: "123456",
+  password: "",
   v: "",
 });
 const VITE_APP_TITLE = import.meta.env.VITE_APP_TITLE;
@@ -116,6 +116,17 @@ const updataModelValue = (e: Event, type: string) => {
 
 // 登录
 const handleLogin = async () => {
+  // console.log(proxy?.$modal.info, "1111");
+  proxy?.$message.info("This is an info modal");
+  // proxy?.$modal.info({
+  //   title: "This is an info modal",
+  //   content: "Some descriptions ...",
+  //   onKnow: () => {
+  //     console.log("Know Click");
+  //   },
+  // });
+  // proxy?.$message.show("登录成功");
+  // return;
   // 解构
   const { username, password } = loginForm.value;
   if (!username) return proxy?.$message("warning", "请输入用户名");

@@ -69,24 +69,136 @@ export function setupPermissions(router: Router) {
 }
 
 // 记录路由历史
+// const setRouterHistory = (to: any) => {
+//   let obj: RouterHistory = {
+//     title: to.meta.title,
+//     path: to.path,
+//     meta: to.meta,
+//     name: to.name,
+//   };
+//   let routerHistory = useTabsStore(pinia).routerHistory;
+//   routerHistory.push(obj as RouterHistory);
+//   //map去重，避免重复记录重复路由
+//   let mapArr = () => {
+//     let map = new Map();
+//     for (let item of routerHistory) {
+//       if (!map.has(item.path)) {
+//         map.set(item.path, item);
+//       } else {
+//         const existingItem = map.get(item.path);
+//         const updatedItem = { ...existingItem };
+//         for (const key in item) {
+//           if (
+//             item[key] !== undefined &&
+//             (existingItem![key] === undefined || existingItem![key] === null)
+//           ) {
+//             if (key === "meta") {
+//               for (const metaKey in item.meta) {
+//                 if (
+//                   item.meta[metaKey] !== undefined &&
+//                   (existingItem?.meta[metaKey] === undefined ||
+//                     existingItem.meta[metaKey] === null)
+//                 ) {
+//                   updatedItem.meta![metaKey] = item.meta[metaKey];
+//                 }
+//               }
+//             } else {
+//               updatedItem[key] = item[key];
+//             }
+//           }
+//         }
+
+//         if (JSON.stringify(updatedItem) !== JSON.stringify(existingItem)) {
+//           map.set(item.path, updatedItem as RouterHistory);
+//         }
+//       }
+//     }
+//     return [...map.values()];
+//   };
+//   let newArr = mapArr(); //去重后的数组
+//   useTabsStore(pinia).toggleRouterHistory(newArr);
+// };
+
+
+// 记录路由历史
 const setRouterHistory = (to: any) => {
-  let obj: RouterHistory = {
-    title: to.meta.title,
-    path: to.path,
-    meta: to.meta,
-    name: to.name,
-  };
-  let routerHistory = useTabsStore(pinia).routerHistory;
-  routerHistory.push(obj as RouterHistory);
-  //map去重，避免重复记录重复路由
-  let mapArr = () => {
-    let map = new Map();
-    for (let item of routerHistory) {
+  const { routes } = useRouterStore();
+  const routerHistory = useTabsStore(pinia).routerHistory;
+  if (to.meta.isRecord === false) {
+    // console.log("不记录路由历史", to, routes);
+
+    // 递归查找父级路由的函数
+    const findParentRoute = (
+      routes: any[],
+      targetPath: string,
+      currentPath = ""
+    ) => {
+      for (let route of routes) {
+        const fullPath = currentPath
+          ? `${currentPath}/${route.path}`
+          : route.path;
+
+        if (route.path === targetPath) {
+          return route;
+        }
+
+        if (route.children && route.children.length > 0) {
+          const parentRoute: any = findParentRoute(
+            route.children,
+            targetPath,
+            fullPath
+          );
+          if (parentRoute) {
+            return parentRoute;
+          }
+        }
+      }
+      return null;
+    };
+
+    const parentRoute = findParentRoute(routes, to.meta.activeMenu);
+    console.log("父级路由", parentRoute);
+
+    if (parentRoute) {
+      const obj: RouterHistory = {
+        title: parentRoute.meta.title,
+        path: parentRoute.path,
+        meta: parentRoute.meta,
+        name: parentRoute.name,
+      };
+
+      // 过滤掉当前的 to 路由
+      const newRouterHistory = routerHistory.filter(
+        (item) => item.path !== to.path
+      );
+      newRouterHistory.push(obj);
+
+      updateRouterHistory(newRouterHistory);
+    }
+  } else {
+    const obj: RouterHistory = {
+      title: to.meta.title,
+      path: to.path,
+      meta: to.meta,
+      name: to.name,
+    };
+
+    const newRouterHistory = [...routerHistory, obj];
+    updateRouterHistory(newRouterHistory);
+  }
+};
+
+// 去重并更新路由历史
+const updateRouterHistory = (routerHistory: RouterHistory[]) => {
+  const mapArr = (history: RouterHistory[]) => {
+    const map = new Map<string, RouterHistory>();
+    for (const item of history) {
       if (!map.has(item.path)) {
-        map.set(item.path, item);
+        map.set(item.path, { ...item });
       } else {
         const existingItem = map.get(item.path);
         const updatedItem = { ...existingItem };
+
         for (const key in item) {
           if (
             item[key] !== undefined &&
@@ -115,6 +227,8 @@ const setRouterHistory = (to: any) => {
     }
     return [...map.values()];
   };
-  let newArr = mapArr(); //去重后的数组
+
+  const newArr = mapArr(routerHistory);
+  // console.log("去重后的数组", newArr);
   useTabsStore(pinia).toggleRouterHistory(newArr);
 };

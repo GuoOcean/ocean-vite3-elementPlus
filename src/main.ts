@@ -2,7 +2,7 @@
  * @Author: guohaiyang 1517366319@qq.com
  * @Date: 2024-11-11 14:23:31
  * @LastEditors: guohaiyang 1517366319@qq.com
- * @LastEditTime: 2024-11-20 21:00:33
+ * @LastEditTime: 2024-11-22 19:03:21
  * @FilePath: /ocean-vite3-elementPlus/src/main.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -38,6 +38,8 @@ import App from "./App.vue";
 import { setupStore } from "@/store";
 import { setupRouter } from "@/router"; // 引入router
 import { setupDirectives } from "@/ocean-directives";
+import Toast from "@/components/message/index";
+import modal from "./components/modal";
 import "overlayscrollbars/overlayscrollbars.css";
 import "element-plus/dist/index.css"; // 引入element-plus样式
 import "element-plus/theme-chalk/dark/css-vars.css"; // 引入element-plus暗黑模式样式
@@ -56,6 +58,8 @@ import "virtual:svg-icons-register";
 async function setupApp() {
   setupLoading();
   const oceanApp = createApp(App);
+  oceanApp.use(Toast);
+  oceanApp.use(modal);
   // 挂载store
   setupStore(oceanApp);
   // 挂载指令
