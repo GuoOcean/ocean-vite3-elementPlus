@@ -9,12 +9,19 @@
     }
   ],
   "include": [
-    "./types/auto-imports.d.ts"
+    "./types/auto-imports.d.ts",
+    "src/**/*.ts", 
+    "src/**/*.d.ts", 
+    "src/**/*.tsx", 
+    "src/**/*.vue"
   ],
   "exclude": [
     "dist",
     "node_modules",
     "**/*.js",
     "packages"
-  ] // 排除src目录下的lib文件夹下的文件不会编译
+  ], // 排除src目录下的lib文件夹下的文件不会编译
+  "compilerOptions": {
+    "paths": { "@/*":["./src/*"] }
+  }
 }
